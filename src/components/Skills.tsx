@@ -30,10 +30,10 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-24 px-4 bg-secondary/20">
+  <section id="skills" aria-labelledby="skills-heading" className="py-24 px-4 bg-secondary/20 scroll-mt-24 md:scroll-mt-32">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Skills & Expertise</h2>
+          <h2 id="skills-heading" className="text-4xl md:text-5xl font-bold mb-4">Skills & Expertise</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Practical, industry-aligned skills developed through vocational labs, certifications, and real projects
           </p>

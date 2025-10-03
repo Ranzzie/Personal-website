@@ -14,10 +14,10 @@ const Certifications = () => {
   ];
 
   return (
-    <section id="certifications" className="py-24 px-4">
+  <section id="certifications" aria-labelledby="certifications-heading" className="py-24 px-4 scroll-mt-24 md:scroll-mt-32">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Certifications</h2>
+          <h2 id="certifications-heading" className="text-4xl md:text-5xl font-bold mb-4">Certifications</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Professional certifications and technical qualifications
           </p>

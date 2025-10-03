@@ -40,10 +40,14 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-24 px-4">
+  <section id="contact" aria-labelledby="contact-heading" className="py-24 px-4 scroll-mt-24 md:scroll-mt-32">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">CONTACT</h2>
+          <h2 id="contact-heading" className="text-4xl md:text-5xl font-bold mb-4">Contact</h2>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            Reach out via email, social media, or my curated link hub. I respond quickly to collaboration opportunities,
+            internships, or questions about networking and systems projects.
+          </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">

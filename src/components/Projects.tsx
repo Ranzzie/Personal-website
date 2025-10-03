@@ -19,10 +19,10 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-24 px-4 bg-secondary/20">
+  <section id="projects" aria-labelledby="projects-heading" className="py-24 px-4 bg-secondary/20 scroll-mt-24 md:scroll-mt-32">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Projects</h2>
+          <h2 id="projects-heading" className="text-4xl md:text-5xl font-bold mb-4">Projects</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Showcase of significant infrastructure projects and implementations
           </p>

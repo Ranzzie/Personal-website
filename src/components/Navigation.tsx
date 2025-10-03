@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, type MouseEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
@@ -15,6 +15,22 @@ const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleNavigationClick = useCallback(
+    (event: MouseEvent<HTMLAnchorElement>, href: string) => {
+      if (!href.startsWith("#")) {
+        return;
+      }
+
+      const element = document.querySelector(href);
+      if (element) {
+        event.preventDefault();
+        element.scrollIntoView({ behavior: "smooth" });
+        setIsMobileMenuOpen(false);
+      }
+    },
+    [setIsMobileMenuOpen]
+  );
+
   const navItems = [
     { label: "About", href: "#about" },
     { label: "Skills", href: "#skills" },
@@ -23,72 +39,83 @@ const Navigation = () => {
     { label: "Contact", href: "#contact" }
   ];
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setIsMobileMenuOpen(false);
-    }
-  };
-
   return (
-    <nav 
+    <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled ? "bg-background/95 backdrop-blur-md shadow-lg" : "bg-transparent"
       }`}
     >
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <div className="text-xl font-bold bg-gradient-hero bg-clip-text text-transparent">
-            {/* Logo space */}
-          </div>
+          <a
+            href="#hero"
+            className="text-xl font-bold bg-gradient-hero bg-clip-text text-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            onClick={(event) => handleNavigationClick(event, "#hero")}
+          >
+            Rifat Raditya
+          </a>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <nav aria-label="Primary" className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              <button
+              <a
                 key={item.label}
-                onClick={() => scrollToSection(item.href)}
-                className="text-muted-foreground hover:text-primary transition-colors"
+                href={item.href}
+                onClick={(event) => handleNavigationClick(event, item.href)}
+                className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 {item.label}
-              </button>
+              </a>
             ))}
-            <Button size="sm" onClick={() => scrollToSection("#contact")}>
-              Let's Talk
+            <Button size="sm" asChild>
+              <a href="#contact" onClick={(event) => handleNavigationClick(event, "#contact")}>
+                Let's Talk
+              </a>
             </Button>
-          </div>
+          </nav>
 
-          {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-foreground"
+            className="md:hidden text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-navigation"
+            aria-label="Toggle navigation menu"
           >
             {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
 
-        {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden py-4 space-y-4 bg-background border-t border-border">
-            {navItems.map((item) => (
-              <button
-                key={item.label}
-                onClick={() => scrollToSection(item.href)}
-                className="block w-full text-left px-4 py-2 text-muted-foreground hover:text-primary transition-colors"
-              >
-                {item.label}
-              </button>
-            ))}
-            <div className="px-4">
-              <Button className="w-full" onClick={() => scrollToSection("#contact")}>
-                Let's Talk
-              </Button>
+        <nav
+          id="mobile-navigation"
+          aria-label="Mobile primary"
+          className="md:hidden"
+        >
+          {isMobileMenuOpen && (
+            <div className="py-4 space-y-4 bg-background border-t border-border">
+              {navItems.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  onClick={(event) => handleNavigationClick(event, item.href)}
+                  className="block w-full px-4 py-2 text-muted-foreground hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                >
+                  {item.label}
+                </a>
+              ))}
+              <div className="px-4">
+                <Button className="w-full" asChild>
+                  <a href="#contact" onClick={(event) => handleNavigationClick(event, "#contact")}>
+                    Let's Talk
+                  </a>
+                </Button>
+              </div>
             </div>
-          </div>
-        )}
+          )}
+        </nav>
       </div>
-    </nav>
+    </header>
   );
 };
 

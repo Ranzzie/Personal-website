@@ -3,7 +3,11 @@ import { ArrowRight, Github, Mail } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section
+      id="hero"
+      aria-labelledby="hero-heading"
+  className="min-h-screen flex items-center justify-center relative overflow-hidden scroll-mt-24 md:scroll-mt-32"
+    >
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-accent/10" />
       
       <div className="container mx-auto px-4 relative z-10">
@@ -14,7 +18,7 @@ const Hero = () => {
             </span>
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-hero bg-clip-text text-transparent">
+          <h1 id="hero-heading" className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-hero bg-clip-text text-transparent">
             Rifat Raditya
           </h1>
           

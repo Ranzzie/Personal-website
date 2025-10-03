@@ -26,10 +26,10 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-24 px-4">
+  <section id="about" aria-labelledby="about-heading" className="py-24 px-4 scroll-mt-24 md:scroll-mt-32">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">About Me</h2>
+          <h2 id="about-heading" className="text-4xl md:text-5xl font-bold mb-4">About Me</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             A passionate 11th grade SIJA student learning to build reliable network infrastructures and exploring the world of systems administration
           </p>

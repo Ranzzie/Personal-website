@@ -17,10 +17,10 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-24 px-4">
+  <section id="experience" aria-labelledby="experience-heading" className="py-24 px-4 scroll-mt-24 md:scroll-mt-32">
       <div className="container mx-auto max-w-4xl">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Experience</h2>
+          <h2 id="experience-heading" className="text-4xl md:text-5xl font-bold mb-4">Experience</h2>
           <p className="text-muted-foreground text-lg">
             Professional journey and key accomplishments
           </p>
