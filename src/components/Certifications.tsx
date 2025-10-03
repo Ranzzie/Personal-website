@@ -1,7 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Award, ExternalLink } from "lucide-react";
+import { Award } from "lucide-react";
 import mikrotikCertificate from "@/assets/mikrotik-certificate.jpg";
 
 const Certifications = () => {
@@ -10,8 +9,7 @@ const Certifications = () => {
       name: "MikroTik Certified Network Associate (MTCNA)",
       issuer: "MikroTik",
       year: "2025",
-      description: "Certified in MikroTik RouterOS configuration, network management, and routing protocols",
-      certificateUrl: "/Sertifikat_MikroTik.pdf"
+  description: "Certified in MikroTik RouterOS configuration, network management, and routing protocols"
     }
   ];
 
@@ -58,23 +56,6 @@ const Certifications = () => {
                     <p className="text-muted-foreground leading-relaxed">
                       {cert.description}
                     </p>
-                    {cert.certificateUrl && (
-                      <Button
-                        variant="outline"
-                        className="mt-4"
-                        asChild
-                      >
-                        <a 
-                          href={cert.certificateUrl} 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2"
-                        >
-                          View Certificate
-                          <ExternalLink className="h-4 w-4" />
-                        </a>
-                      </Button>
-                    )}
                   </div>
                 </div>
               </div>

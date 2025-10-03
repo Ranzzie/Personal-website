@@ -5,23 +5,23 @@ const Skills = () => {
   const skillCategories = [
     {
       category: "Networking",
-      skills: ["Cisco", "Juniper", "TCP/IP", "BGP", "OSPF", "VPN", "VLAN", "Firewall Configuration"]
+      skills: ["Cisco", "TCP/IP", "BGP", "OSPF", "VPN", "VLAN", "Firewall Configuration"]
     },
     {
       category: "Operating Systems",
-      skills: ["Linux", "Windows Server", "Ubuntu", "CentOS", "Red Hat", "Debian"]
+      skills: ["Linux", "Ubuntu", "Red Hat", "Debian"]
     },
     {
       category: "Virtualization",
-      skills: ["VMware", "Hyper-V", "KVM", "Docker", "Kubernetes"]
+      skills: ["Proxmox", "Hyper-V", "KVM", "Docker", "Kubernetes"]
     },
     {
       category: "Monitoring & Security",
-      skills: ["Nagios", "Zabbix", "Wireshark", "pfSense", "IDS/IPS", "SIEM"]
+      skills: ["Prometeus", "Zabbix", "Wireshark", "pfSense", "SIEM"]
     },
     {
       category: "Cloud & Automation",
-      skills: ["AWS", "Azure", "Ansible", "Terraform", "Python", "Bash Scripting"]
+      skills: ["AWS", "Azure", "Ansible", "Terraform", "n8n", "Bash Scripting"]
     },
     {
       category: "Database & Storage",
@@ -35,7 +35,7 @@ const Skills = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Skills & Expertise</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            A comprehensive toolkit built through years of hands-on experience
+            Practical, industry-aligned skills developed through vocational labs, certifications, and real projects
           </p>
         </div>
 
